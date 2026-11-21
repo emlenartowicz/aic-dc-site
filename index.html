@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deployment Commitments | AI Commons</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{--azure:#185fa5;--azure-deep:#0c4480;--azure-tint:#e6f0fa;--ink:#181816;--ink-2:#2a2a28;--body-soft:#4a4a45;--muted:#5a5a58;--quiet:#8a8a86;--faint:#b0afa8;--line:rgba(24,24,22,.1);--line-soft:rgba(24,24,22,.07);--linen:#fafaf7;--stone:#f7f7f5;
+--serif:"Lora",Georgia,serif;--mono:"DM Mono",ui-monospace,monospace;--grad-quote:linear-gradient(180deg,#185fa5,#7f77dd,#d4537e);--grad-spectrum:linear-gradient(90deg,#e84545,#f2a93b 20%,#f2d843 40%,#4caf50 60%,#185fa5 80%,#7f77dd);
+--content:1120px;--gutter:max(40px,calc((100vw - var(--content))/2))}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--serif);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.spectrum{height:3px;background:var(--grad-spectrum)}
+nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:22px 48px;border-bottom:1px solid var(--line-soft)}
+nav .aic img{height:34px;display:block}
+nav .links{display:flex;gap:36px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+nav .links a{text-decoration:none}
+nav .links a:hover{color:var(--azure)}
+nav .on{color:var(--azure)}
+nav .contact{background:var(--azure);color:#fff;padding:10px 18px}
+nav .contact:hover{color:#fff!important;background:var(--azure-deep)}
+nav .toggle{display:none;font-family:var(--mono);font-size:12px;letter-spacing:1.4px;background:none;border:1px solid var(--line);padding:8px 12px;color:var(--muted);cursor:pointer}
+nav.dctop .lockup{display:flex;align-items:center;gap:10px;font-size:19px;text-decoration:none}
+nav.dctop .dcmark{height:28px;width:28px;flex:none}
+nav.dctop .aic img{height:30px}
+.herolock{display:flex;align-items:center;gap:14px;margin-bottom:28px}.herolock .label.lg{margin-bottom:0}.herolock .hmark{width:30px;height:30px;flex:none}
+.herolock.stacked{flex-direction:column;align-items:flex-start;gap:22px}.herolock.stacked .hmark{width:56px;height:56px}
+.projbar{padding:14px 48px;background:var(--linen);border-bottom:1px solid var(--line-soft)}.projbar .lockup{display:inline-flex;align-items:center;gap:10px;font-size:16px;text-decoration:none}.projbar .bmark{width:22px;height:22px;flex:none}
+.wrap{padding-left:var(--gutter);padding-right:var(--gutter)}
+.label{display:block;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1.32px;text-transform:uppercase;color:var(--azure);margin-bottom:14px}
+.label.lg{font-size:13px;letter-spacing:1.56px;margin-bottom:28px}
+.label.quiet{color:var(--quiet);font-weight:400}
+.hero{padding-top:96px;padding-bottom:80px}
+.hero h1{font-weight:400;font-size:64px;line-height:70px;letter-spacing:-1.28px;max-width:820px}
+.hero h1 em{display:block;color:var(--azure)}
+.statement{margin-top:56px;background:var(--linen);padding:56px 64px}
+.statement p{border-left:3px solid;border-image:var(--grad-quote) 1;padding-left:36px;font-size:24px;line-height:38px;max-width:860px}
+.meta{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);max-width:720px}
+section{padding-top:88px;padding-bottom:88px;border-top:1px solid var(--line)}
+section.band{background:var(--linen);border-top:0}
+section.band + section{border-top:0}
+.h2{font-weight:400;font-size:36px;line-height:43px;letter-spacing:-.54px}
+.h2.xl{font-size:44px;line-height:52px;letter-spacing:-.88px;max-width:860px}
+.h2 em{color:var(--azure)}
+.split{display:grid;grid-template-columns:400px 1fr;gap:80px;align-items:start}
+.body{font-size:18px;line-height:31px;color:var(--ink-2)}
+.body + .body{margin-top:22px}
+.cols2 .body{margin-top:0}
+.lead{font-size:22px;line-height:35px}
+.cols2{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.asks{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.ask{border:1px solid var(--line);border-top:3px solid var(--azure);padding:40px 36px 44px}
+.ask h3{font-weight:400;font-size:34px;line-height:40px;letter-spacing:-.51px;margin-bottom:18px}
+.ask p{font-size:16.5px;line-height:28px;color:var(--body-soft)}
+.chain{margin-top:52px;display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr;align-items:stretch}
+.node{border-top:2px solid var(--azure);padding-top:16px}
+.node .label{margin-bottom:8px}
+.node p{font-size:19px;line-height:27px;font-style:italic;color:var(--azure)}
+.arrow{display:flex;align-items:flex-end;justify-content:center;font-family:var(--mono);color:var(--faint);font-size:18px;padding-bottom:4px}
+.pats{margin-top:56px;display:grid;grid-template-columns:repeat(7,1fr);gap:18px}
+.pat{border-top:1px solid var(--line);padding-top:18px}
+.dots{display:flex;align-items:center;gap:4px;margin-bottom:12px;height:22px}
+.mk{display:block;fill:#040303}   /* black, as the AIC-DC mark: Em, 2026-09-20, *drop the blue color and keep everything black and white* (D157); asked again 2026-11-21 */
+.pat p{font-size:14px;line-height:21px;color:var(--body-soft)}
+.cards{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:#fff;border-top:2px solid var(--azure);padding:30px 28px 34px}
+.card h3{font-weight:500;font-size:22px;line-height:28px;margin-bottom:14px}
+.card p{font-size:15.5px;line-height:26px;color:var(--body-soft)}
+.pull{margin-top:0;border-left:3px solid;border-image:var(--grad-quote) 1;padding-left:22px}
+.rows{margin-top:44px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:70px 300px 1fr;gap:24px;padding:34px 0;border-bottom:1px solid var(--line)}
+.row .num{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--azure);letter-spacing:1.3px;padding-top:8px}
+.row h3{font-weight:400;font-size:26px;line-height:32px}
+.row .tag{display:block;margin-top:6px;font-style:italic;font-size:17px;line-height:25px;color:var(--azure)}
+.row p{font-size:17px;line-height:29px;color:var(--ink-2)}
+.slot{margin-top:36px;border:2px dashed #e3c27a;background:#fff7e6;color:#6b4a00;font-family:var(--mono);font-size:13px;line-height:20px;padding:18px 22px}
+.slot-done{margin-top:36px}
+.slot-done a{color:var(--azure)}
+.people{margin-top:36px;display:flex;flex-wrap:wrap;column-gap:28px;row-gap:36px}
+.person{text-decoration:none;display:flex;flex-direction:column;gap:4px;width:calc((100% - 112px) / 5);max-width:201px}
+.person img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:center top;display:block;margin-bottom:10px;filter:grayscale(15%)}
+.person-name{display:block;font-weight:500;font-size:16px;line-height:20px}
+.person-meta{display:block;font-family:var(--mono);font-size:10px;line-height:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--azure)}
+.people-h{font-weight:400;font-size:26px;line-height:32px}
+footer{border-top:1px solid var(--line);padding:56px var(--gutter) 28px;font-size:15px}
+.foot{display:grid;grid-template-columns:1fr 220px 120px;gap:40px}
+.foot img{height:22px;display:block}
+.foot .tag{color:var(--body-soft);margin-top:20px;max-width:300px;line-height:26px}
+.foot .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:var(--quiet);margin-bottom:14px}
+.foot li{list-style:none;margin-bottom:10px}
+.foot li a{text-decoration:none}
+.foot li a:hover{color:var(--azure)}
+.foot .new{color:var(--azure)}
+.copy{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--quiet)}
+@media (max-width:900px){nav{padding:18px 24px}nav.dctop .lockup{font-size:15px;gap:8px}nav.dctop .dcmark{height:22px;width:22px}nav .toggle{display:block}nav .links{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:18px;padding-top:18px}nav[data-open="true"] .links{display:flex}
+.split,.cols2,.asks{grid-template-columns:1fr;gap:28px}.cards{grid-template-columns:1fr}.pats{grid-template-columns:repeat(2,1fr)}.people{column-gap:16px}.person{width:calc(50% - 8px)}.chain{grid-template-columns:1fr}.arrow{transform:rotate(90deg);padding:10px 0}.row{grid-template-columns:1fr}.hero h1{font-size:42px;line-height:48px}.statement{padding:32px 24px}.statement p{padding-left:20px;font-size:20px;line-height:32px}.foot{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="spectrum"></div>
+<header>
+<nav aria-label="Primary"><a class="aic" href="https://ai-commons.org/" aria-label="AI Commons home"><img src="aic-wordmark.svg" alt="AI Commons"></a><button type="button" class="toggle" aria-expanded="false" aria-controls="links">MENU</button><div class="links" id="links"><a href="https://ai-commons.org/people">People</a><a class="on" href="https://ai-commons.org/registry" aria-current="true">Projects</a><a href="https://ai-commons.org/pillars">Pillars</a><a class="contact" href="https://ai-commons.org/contact">Contact</a></div></nav>
+
+</header>
+<main>
+<div class="wrap hero">
+<div class="herolock inline"><svg class="hmark" role="img" aria-label="AIC-DC mark" xmlns="http://www.w3.org/2000/svg" viewBox="21.18 14.42 134.75 134.75">
+  
+  <style>
+    .mark { fill: #040303; }
+    @media (prefers-color-scheme: dark) { .mark { fill: #ffffff; } }
+  </style>
+  <path class="mark" d="M28.34 58.24Q28.34 53.18 30.88 48.77Q33.4 44.39 37.81 41.84Q42.19 39.3 47.28 39.3Q52.34 39.3 56.72 41.84Q61.13 44.39 63.65 48.77Q66.19 53.18 66.19 58.24Q66.19 63.3 63.65 67.71Q61.13 72.09 56.72 74.64Q52.34 77.18 47.28 77.18Q42.19 77.18 37.81 74.64Q33.4 72.09 30.88 67.71Q28.34 63.3 28.34 58.24Z"/>
+  <path class="mark" d="M69.63 58.24Q69.63 53.18 72.17 48.77Q74.69 44.39 79.1 41.84Q83.48 39.3 88.57 39.3Q93.63 39.3 98.02 41.84Q102.42 44.39 104.94 48.77Q107.49 53.18 107.49 58.24Q107.49 63.3 104.94 67.71Q102.42 72.09 98.02 74.64Q93.63 77.18 88.57 77.18Q83.48 77.18 79.1 74.64Q74.69 72.09 72.17 67.71Q69.63 63.3 69.63 58.24Z"/>
+  <path class="mark" d="M112.1 58.24Q112.1 65.12 116.93 69.96Q121.77 74.81 128.64 74.81Q135.52 74.81 140.35 69.96Q145.19 65.12 145.19 58.24Q145.19 53.9 142.98 49.94Q140.78 45.98 136.81 43.84Q132.83 41.7 128.64 41.7Q124.45 41.7 120.48 43.84Q116.51 45.98 114.31 49.94Q112.1 53.9 112.1 58.24ZM129.83 76.74Q129.22 76.79 128.62 76.79Q120.97 76.79 115.53 71.38Q110.09 65.97 110.09 58.24Q110.09 53.44 112.59 48.96Q115.08 44.48 119.55 42.09Q124.02 39.69 128.62 39.69Q129.22 39.69 129.83 39.74Q130.44 39.69 131.04 39.69Q135.72 39.69 140.18 42.09Q144.65 44.48 147.14 48.94Q149.62 53.4 149.62 58.24Q149.62 65.97 144.18 71.38Q138.74 76.79 131.04 76.79Q130.44 76.79 129.83 76.74Z"/>
+  <path class="mark" d="M29.51 105.36Q29.51 112.24 34.34 117.08Q39.17 121.93 46.05 121.93Q52.93 121.93 57.76 117.08Q62.59 112.24 62.59 105.36Q62.59 101.03 60.39 97.07Q58.19 93.11 54.21 90.96Q50.24 88.82 46.05 88.82Q41.86 88.82 37.89 90.96Q33.92 93.11 31.71 97.07Q29.51 101.03 29.51 105.36ZM47.24 123.86Q46.63 123.91 46.03 123.91Q38.37 123.91 32.94 118.5Q27.5 113.09 27.5 105.36Q27.5 100.57 29.99 96.08Q32.49 91.6 36.96 89.21Q41.43 86.81 46.03 86.81Q46.63 86.81 47.24 86.86Q47.84 86.81 48.45 86.81Q53.12 86.81 57.59 89.21Q62.06 91.6 64.54 96.06Q67.03 100.52 67.03 105.36Q67.03 113.09 61.59 118.5Q56.15 123.91 48.45 123.91Q47.84 123.91 47.24 123.86Z"/>
+  <path class="mark" d="M69.63 105.36Q69.63 100.3 72.17 95.89Q74.69 91.51 79.1 88.96Q83.48 86.42 88.57 86.42Q93.63 86.42 98.02 88.96Q102.42 91.51 104.94 95.89Q107.49 100.3 107.49 105.36Q107.49 110.42 104.94 114.83Q102.42 119.21 98.02 121.76Q93.63 124.3 88.57 124.3Q83.48 124.3 79.1 121.76Q74.69 119.21 72.17 114.83Q69.63 110.42 69.63 105.36Z"/>
+  <path class="mark" d="M110.93 105.36Q110.93 100.3 113.47 95.89Q115.99 91.51 120.4 88.96Q124.78 86.42 129.87 86.42Q134.93 86.42 139.31 88.96Q143.72 91.51 146.24 95.89Q148.78 100.3 148.78 105.36Q148.78 110.42 146.24 114.83Q143.72 119.21 139.31 121.76Q134.93 124.3 129.87 124.3Q124.78 124.3 120.4 121.76Q115.99 119.21 113.47 114.83Q110.93 110.42 110.93 105.36Z"/>
+</svg><span class="label lg">Deployment Commitments</span></div>
+<h1>Formulas that turn <em>AI deployments into commons.</em></h1>
+<div class="statement"><p>When AI, the combined knowledge of all of us, impacts the living world and reaches into people's lives — where do we stand in what it does? When it is put to work in services, products, and businesses around the world, or when it conducts economic activity on its own — what's in it for us?</p></div>
+<span class="label quiet meta">AI Commons · Project 03</span>
+</div>
+
+<section class="wrap" id="s01"><div class="split">
+<div><span class="label">01 · Beyond the artifact</span>
+<h2 class="h2">The commons in action.</h2></div>
+<div><p class="body">Digital commons are layers of shared artifacts: circulating under open terms, co-created by many, reusable by all. But when a shared artifact becomes a generative workforce, or an agent that can act on its own, the commons has to reach beyond the artifact. The spirit of the commons must live in operations and their effects.</p></div>
+</div></section>
+
+<section class="wrap" id="s02">
+<span class="label">02 · Where AI runs</span>
+<h2 class="h2 xl">Built into the world <em>as it is.</em></h2>
+<div class="cols2"><p class="body">AI is deployed inside firms, nonprofits, public bodies, and the consortia between them, under many jurisdictions, and it cascades through value chains. Each deployment draws all it needs inside a boundary of its own. The resulting enclosures, where AI actually runs, rarely add up to a commons that keeps returning to everyone. What would it take to build the logic of the commons into this world as it is?</p><p class="body">Law, organization, and the prevailing economic paradigm interlock with one another tightly. Whatever enters that lock is read in the lock's terms, and anything left vague is read away. So the logic of the commons, to be built in, has to be specified precisely enough to leave nothing unsaid: it has to be cut to turn that lock.</p></div>
+</section>
+
+<section class="wrap" id="s03">
+<span class="label">03 · License and grammar</span>
+<h2 class="h2 xl">Shared formulas, freely adopted.</h2>
+<div class="asks">
+<div class="ask"><h3>License</h3><p>Each commitment attaches to an organization as it is and turns one dimension of its AI deployment into a commons: a part of the operation that others, not the owner alone, hold rights in. The instrument for this is a license: long before it governed the use of works, a license was what let others enter and act on someone's ground. The rights go to the people the deployment draws on and the people it reaches, and they can hold the deployer to them in their own name. The commitments act on the deployment, not on the artifact: whatever terms the AI came in on, the operation that runs it can still work as a commons.</p></div>
+<div class="ask"><h3>Framework</h3><p>A deployer adopts a commitment and declares it in public. Adoption is voluntary, and a commitment, once declared, binds the deployer from its publication. The commitments are organizational formulas in a common grammar. That grammar defines in common what every deployment would otherwise settle for itself: what counts as a deployment and what draws its boundary, how a commitment takes hold within the law an organization already operates under, and how it is passed on to suppliers and operators along the chain. So a commitment made in one deployment reads the same in the next, and the deployments connect.</p></div>
+</div>
+</section>
+
+<section class="wrap" id="s04"><div class="split">
+<div><span class="label">04 · What counts as a deployment</span>
+<h2 class="h2">A deployment is a whole operation.</h2></div>
+<div><p class="body">In this framework, a deployment is everything an organization brings together, technical, organizational, and economic, to put AI to work for one of its products or services. A city council using AI to triage housing applications is one deployment; a bank running the same model to score loans is another. An organization may run many deployments, each with commitments of its own. What a deployment produces can be anything, including more AI, so the data center that runs models, the lab that serves them, and the business that builds on them are each deployments of their own.</p></div>
+</div>
+<div class="chain">
+<div class="node"><span class="label">Deployment</span><p>The data center that runs models</p></div><div class="arrow">→</div>
+<div class="node"><span class="label">Deployment</span><p>The lab that serves them</p></div><div class="arrow">→</div>
+<div class="node"><span class="label">Deployment</span><p>The business that builds on them</p></div>
+</div>
+</section>
+
+<section class="wrap" id="s05"><div class="split">
+<div><span class="label">05 · Held and required</span>
+<h2 class="h2">Commitments propagate across value chains, <em>as requirements.</em></h2></div>
+<div><p class="body">A commitment need not stop at the deployment that makes it. Wherever it sits in a value chain, a deployment usually has suppliers that provide its AI capabilities, operators that build on what it delivers, or both. Held by the deployer, a commitment is its own license, granting rights in its operation. Required of its suppliers or operators, it becomes a condition of doing business, so that they make the same grant in theirs. Others can require commitments of any deployment too: a procurer in a tender, a grant maker in a call, an investor in a term sheet, a platform in its rules of access.</p><p class="body">That way, many players can ask commitments of one another, in formulas all of them read the same way. A commitment's propagation pattern shows where it is held and where it is required: three dots — upstream, core, downstream — filled where it binds.</p></div>
+</div>
+<div class="pats">
+<div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko1" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko1)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko2" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko2)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg></div><p>core only</p></div><div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko3" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko3)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg></div><p>upstream and core</p></div><div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko4" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko4)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg></div><p>core and downstream</p></div><div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg></div><p>the full chain</p></div><div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko5" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko5)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko6" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko6)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg></div><p>upstream only</p></div><div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko7" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko7)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko8" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko8)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg></div><p>downstream only</p></div><div class="pat"><div class="dots"><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><defs><mask id="mko9" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="28"><rect width="30" height="28" fill="#fff"/><circle cx="14.0" cy="14.0" r="11.591" fill="#000"/></mask></defs><g mask="url(#mko9)"><circle cx="14.0" cy="14.0" r="13.000"/><circle cx="15.697" cy="14.0" r="13.000"/></g></svg><svg class="mk" width="23.08" height="21.54" viewBox="0 0 30 28" aria-hidden="true"><circle cx="14.0" cy="14.0" r="13.000"/></svg></div><p>upstream and downstream, not held itself</p></div>
+</div>
+</section>
+
+<section class="band" id="s06"><div class="wrap">
+<div class="split">
+<div><span class="label">06 · What's in it for us</span>
+<h2 class="h2">An open design space.</h2></div>
+<div><p class="body">What the world asks of AI comes in two kinds. Some of it calls for control: lines that cannot be crossed, held by regulation and safety practice. The rest calls for opening what is closed, so that those with a stake in it hold rights in it. AI Commons answers this second kind.</p><p class="body">Read against today's major concerns and expectations, the starting point of the Deployment Commitments project is that an AI deployment, whatever its business, can be configured by turning one or more of these six dimensions into a commons:</p></div>
+</div>
+<div class="cards">
+<div class="card"><h3>Reciprocity</h3><p>A deployment may draw on contributions it never paid for, or stop rewarding people once their work has been automated. Turned into a commons, the deployment lets the people whose work went into it go on sharing in the economic value that work creates.</p></div><div class="card"><h3>Sustainability</h3><p>A deployment draws energy, water, land, and minerals from the living world and returns emissions, heat, and waste to it. In an economy that automates, deployments can multiply without limit, so no footprint is small enough: only a full balance on every planetary boundary a deployment touches stays safe at any scale. Turned into a commons, the deployment takes that balance into its own scope, restoring the places it affects. The people who depend on those places stand in for the living world, holding the right to see the balance kept.</p></div><div class="card"><h3>Openness</h3><p>A deployment's whole machinery — the AI it runs, the code that puts it to work, how it was tested and where it failed, the data and information it collects, keeps, and passes on — usually stays out of sight of everyone outside it. Made a commons, that machinery is open for anyone to examine, and each person it reaches can see how the operation handled them.</p></div><div class="card"><h3>Governance</h3><p>Whether a deployment runs, and on what terms, is usually the deployer's call alone. Made a commons, those decisions are shared with the people who live with their consequences.</p></div><div class="card"><h3>Access</h3><p>Whatever a deployment delivers — a service, a product, a piece of work, in any line of business — is usually made for its customers only. Opened as a commons, it is there for everyone to use.</p></div><div class="card"><h3>Value</h3><p>A deployment automates with the combined knowledge of all of us, yet the economic value it creates stays with its owners. Shared as a commons, part of that value returns to humanity, starting where the need is greatest. Deployment by deployment, the wealth flowing through the AI transition can bring an end to global poverty.</p></div>
+</div>
+</div></section>
+
+<section class="wrap" id="s07"><div class="split">
+<div><span class="label">07 · The Working Group</span>
+<h2 class="h2">Stewarding the framework.</h2></div>
+<div class="pull"><p class="body lead">The AIC-DC Working Group develops the framework as an open standard: written in public, version by version, with everyone who has a stake in it, which is how standards earn legitimacy. The group holds custody of the framework as a whole, and of the process by which it evolves, so that every change is coherent, transparent, and true to its intent.</p></div>
+</div></section>
+
+<section class="wrap" id="s08">
+<span class="label">08 · Roadmap</span>
+<h2 class="h2">From draft to a working instrument.</h2>
+<div class="rows">
+<div class="row"><span class="num">01</span><div><h3>Drafting</h3><span class="tag">Current phase · Q2–Q4 2026</span></div><p>The architecture of the commitments and their clauses, brought to a release candidate: the shape of each commitment, its boundaries and how it interoperates with the others, its scope and definitions, baseline clauses and adjustable parameters, and a clear rationale for every design choice.</p></div><div class="row"><span class="num">02</span><div><h3>Feedback and testing</h3><span class="tag">Q1–Q2 2027</span></div><p>The release candidate goes through three layers: a public request for comments, an interdisciplinary legal review across jurisdictions, and closed pilots with early adopters. Their findings go into version 1.0.</p></div><div class="row"><span class="num">03</span><div><h3>Adoption and support</h3><span class="tag">from Q3 2027</span></div><p>Adoptions are invited on version 1.0, with a support structure for those who adopt.</p></div>
+</div>
+</section>
+
+<section class="wrap" id="people">
+<span class="label">People</span>
+<h3 class="people-h">AIC-DC Working Group</h3>
+<div class="people">
+<a class="person" href="https://clea.research.vub.be/people/em-lenartowicz"><img src="photos/em-lenartowicz.jpg" alt="Em Lenartowicz"><span class="person-name">Em Lenartowicz</span><span class="person-meta">Chair</span></a><a class="person" href="https://www.linkedin.com/in/caxenie/"><img src="photos/cristian-axenie.jpg" alt="Cristian Axenie"><span class="person-name">Cristian Axenie</span></a><a class="person" href="https://clea.research.vub.be/michel-bauwens"><img src="photos/michel-bauwens.jpg" alt="Michel Bauwens"><span class="person-name">Michel Bauwens</span></a><a class="person" href="https://www.linkedin.com/in/dr-ann-borda-574272/"><img src="photos/ann-borda.jpg" alt="Ann Borda"><span class="person-name">Ann Borda</span></a><a class="person" href="https://www.linkedin.com/in/steve-coy-1197b2/"><img src="photos/steve-coy.jpg" alt="Steve Coy"><span class="person-name">Steve Coy</span></a><a class="person" href="https://www.apl.washington.edu/people/profile.php?last_name=David&amp;first_name=Scott"><img src="photos/scott-l-david.png" alt="Scott L. David"><span class="person-name">Scott L. David</span></a><a class="person" href="https://vkostakis.org/"><img src="photos/vasilis-kostakis.png" alt="Vasilis Kostakis"><span class="person-name">Vasilis Kostakis</span></a><a class="person" href="https://www.linkedin.com/in/francescalarosa/"><img src="photos/francesca-larosa.jpg" alt="Francesca Larosa"><span class="person-name">Francesca Larosa</span></a><a class="person" href="https://www.linkedin.com/in/prof-dr-fatima-roumate-17193920/"><img src="photos/fatima-roumate.jpg" alt="Fatima Roumate"><span class="person-name">Fatima Roumate</span></a><a class="person" href="https://www.linkedin.com/in/joanaprssantos/"><img src="photos/joana-santos.jpg" alt="Joana Santos"><span class="person-name">Joana Santos</span></a><a class="person" href="https://www.linkedin.com/in/mihaelaulieru/"><img src="photos/mihaela-ulieru.jpg" alt="Mihaela Ulieru"><span class="person-name">Mihaela Ulieru</span></a><a class="person" href="https://clea.research.vub.be/weaver-dr-weinbaum"><img src="photos/weaver-weinbaum.jpg" alt="Weaver Weinbaum"><span class="person-name">Weaver Weinbaum</span></a><a class="person" href="https://www.linkedin.com/in/superlinear/"><img src="photos/young-yoon.jpg" alt="Young Yoon"><span class="person-name">Young Yoon</span></a><a class="person" href="https://www.linkedin.com/in/genzendahl/"><img src="photos/gen-zendahl.jpg" alt="Gen Zendahl"><span class="person-name">Gen Zendahl</span></a>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="foot">
+<div><a href="https://ai-commons.org/" aria-label="AI Commons home"><img src="aic-wordmark.svg" alt="AI Commons"></a><p class="tag">Building a Common Future where AI Benefits Everyone.</p><p class="lbl" style="margin-top:14px">Established 2016</p></div>
+<div><p class="lbl">Projects</p><ul><li><a href="https://ai-commons.org/registry">The Registry</a></li><li><a href="https://ai-commons.org/projects/global-data-pledge">Global Data Pledge</a></li><li class="new"><a href="https://aic-dc.net/" aria-current="page">Deployment Commitments</a></li></ul></div>
+<div><p class="lbl">About</p><ul><li><a href="https://ai-commons.org/people">People</a></li><li><a href="https://ai-commons.org/pillars">Pillars</a></li><li><a href="https://ai-commons.org/contact">Contact</a></li></ul></div>
+</div>
+<p class="copy">© 2016–2026 AI Commons. All documents open access.</p>
+</footer>
+<script>
+(function(){var n=document.querySelector('nav'),b=n&&n.querySelector('.toggle');if(!b)return;
+b.addEventListener('click',function(){var o=n.getAttribute('data-open')==='true';n.setAttribute('data-open',o?'false':'true');b.setAttribute('aria-expanded',o?'false':'true');});})();
+</script>
+</body>
+</html>
