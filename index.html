@@ -112,6 +112,22 @@ section.band + section{border-top:0}
 .slot{margin-top:36px;border:2px dashed #e3c27a;background:#fff7e6;color:#6b4a00;font-family:var(--mono);font-size:13px;line-height:20px;padding:18px 22px}
 .slot-done{margin-top:36px}
 .slot-done a{color:var(--azure)}
+/* 09: the two picture cards (Em, 2026-11-24). The page's own card: white, the azure rule on top; the picture at the left on the page's stone. */
+.mats{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.mat{background:#fff;border-top:2px solid var(--azure);display:grid;grid-template-columns:210px 1fr;text-decoration:none;color:inherit;min-height:270px;overflow:hidden;transition:box-shadow .15s}
+.mat:hover{box-shadow:0 8px 28px rgba(0,0,0,.08)}
+.mat .pic{position:relative;background:var(--stone);min-height:270px}
+.mat .txt{padding:30px 28px 30px;display:flex;flex-direction:column}
+.mat .tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--azure)}
+.mat h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:32px;margin:12px 0 10px;color:var(--ink)}
+.mat p{font-size:15.5px;line-height:1.55;color:var(--body-soft);margin:0}
+.mat .go{margin-top:auto;padding-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--azure)}
+.mat .bk{position:absolute;left:34px;top:26px;height:250px;width:auto}
+.mat .sl{position:absolute;width:170px;height:auto;border:1px solid rgba(24,24,22,.1);box-shadow:0 8px 20px rgba(0,0,0,.13);background:#fff}
+.mat .s1{left:14px;top:38px;transform:rotate(-4deg)} .mat .s2{left:28px;top:104px;transform:rotate(2deg)}
+.mat .ws{position:absolute;left:112px;top:150px;width:78px;height:auto;border:1px solid rgba(24,24,22,.1);box-shadow:0 8px 18px rgba(0,0,0,.16);transform:rotate(5deg);background:#fff}
+@media (max-width:900px){.mats{grid-template-columns:1fr}}
+@media (max-width:520px){.mat{grid-template-columns:1fr} .mat .pic{min-height:250px}}
 .people{margin-top:36px;display:flex;flex-wrap:wrap;column-gap:28px;row-gap:36px}
 .person{text-decoration:none;display:flex;flex-direction:column;gap:4px;width:calc((100% - 112px) / 5);max-width:201px}
 .person img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:center top;display:block;margin-bottom:10px;filter:grayscale(15%)}
@@ -226,6 +242,15 @@ footer{border-top:1px solid var(--line);padding:72px var(--gutter) 40px;font-siz
 <h2 class="h2">From draft to a working instrument.</h2>
 <div class="rows">
 <div class="row"><span class="num">01</span><div><h3>Drafting</h3><span class="tag">Current phase · Q2–Q4 2026</span></div><p>The architecture of the commitments and their clauses, brought to a release candidate: the shape of each commitment, its boundaries and how it interoperates with the others, its scope and definitions, baseline clauses and adjustable parameters, and a clear rationale for every design choice.</p></div><div class="row"><span class="num">02</span><div><h3>Feedback and testing</h3><span class="tag">Q1–Q2 2027</span></div><p>The release candidate goes through three layers: a public request for comments, an interdisciplinary legal review across jurisdictions, and closed pilots with early adopters. Their findings go into version 1.0.</p></div><div class="row"><span class="num">03</span><div><h3>Adoption and support</h3><span class="tag">from Q3 2027</span></div><p>Adoptions are invited on version 1.0, with a support structure for those who adopt.</p></div>
+</div>
+</section>
+
+<section class="wrap" id="s09" data-slot="materials">
+<span class="label">09 · Open access</span>
+<h2 class="h2">Working materials, in the open.</h2>
+<div class="mats">
+<a class="mat" href="https://wg.aic-dc.net/the-standard.pdf"><div class="pic"><img class="bk" src="materials/standard-book.png" alt=""></div><div class="txt"><span class="tag">Working draft · PDF</span><h3>The Standard</h3><p>The framework in full: its reasoning, the licence text, and the path to adopting it (work in progress).</p><span class="go">Open the Standard →</span></div></a>
+<a class="mat" href="https://decks.aic-dc.net/"><div class="pic"><img class="sl s1" src="materials/slide-presentation.png" alt=""><img class="sl s2" src="materials/slide-workshop.png" alt=""><img class="ws" src="materials/worksheet.png" alt=""></div><div class="txt"><span class="tag">Presentations · Workshops</span><h3>Decks and worksheets</h3><p>Slides that present the framework, and workshop decks with worksheets for the sessions through which an organization prepares to adopt a licence (work in progress).</p><span class="go">Open the decks →</span></div></a>
 </div>
 </section>
 
