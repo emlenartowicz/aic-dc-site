@@ -105,6 +105,8 @@ section.band + section{border-top:0}
 .pull{margin-top:0;border-left:3px solid;border-image:var(--grad-quote) 1;padding-left:22px}
 .rows{margin-top:44px;border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:70px 300px 1fr;gap:24px;padding:34px 0;border-bottom:1px solid var(--line)}
+/* 2026-11-24 (Em: *can we remove one line under section 8? two lines look strange*): the last step draws no rule of its own; the next section's top rule is the divider, as between every other pair of sections. */
+.row:last-child{border-bottom:0}
 .row .num{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--azure);letter-spacing:1.3px;padding-top:8px}
 .row h3{font-weight:400;font-size:26px;line-height:32px}
 .row .tag{display:block;margin-top:6px;font-style:italic;font-size:17px;line-height:25px;color:var(--azure)}
